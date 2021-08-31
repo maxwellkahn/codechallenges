@@ -770,7 +770,20 @@ getNumForIP( '192.156.99.15' ) // => 3231474447
 getNumForIP( '10.0.0.1' ) // => 167772161
 -----------------------------------------------------------------*/
 // Your solution for 25-getNumForIP here:
-
+function getNumForIP(ip){
+  let intNums = []
+  num = 0
+  j = 0
+  strNum = ip.split('.')
+  strNum.forEach(function(el){
+    intNums.push(parseInt(el))
+  })
+  for (i = intNums.length - 1; i >= 0; i--){
+    num += intNums[i] * (256 ** j)
+    j += 1;
+  }
+  return num
+}
 /*-----------------------------------------------------------------
 Challenge: 26-toCamelCase
 
